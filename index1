@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        #banner{
+            width:520px;
+            height:280px;
+            margin:100px auto;
+            border:solid 1px red;
+            position:relative;
+
+        }
+        #pic{
+            width:520px;
+            height:280px;
+            overflow:hidden;
+        }
+        #pic ul{
+            width:1000%;
+            height:280px;
+            margin-left:-520px;
+        }
+        #pic ul li{
+            list-style:none;
+            float:left;
+        }
+        #btn div{
+            width:23px;
+            height:36px;
+            background:#fff;
+            background:rgba(0,0,0,.5);
+            position:absolute;
+            top:50%;
+            margin-top:-18px;
+            text-align:center;
+            font-weight:bold;
+            font-size:20px;
+            line-height:36px;
+            cursor:pointer;
+            color:#fff;
+        }
+        #left{left:0;}
+        #right{right:0;}
+        #tab{
+            width:71px;
+            height:14px;
+            background:#fff;
+            background:rgba(255,255,255,.5);
+            bottom:15px;
+            left:50%;
+            position:absolute;
+            margin-left:-38px;
+            border-radius:7px;
+
+
+        }
+        #tab ul li{
+            width:10px;
+            height:10px;
+            list-style:none;
+            background:#999;
+            border-radius:100%;
+            float:left;
+            margin:2px 2px ;
+            cursor:pointer;
+        }
+        #tab ul li.on{
+            background:red;
+        }
+
+    </style>
+</head>
+<body>
+        <div id="banner">
+            <div id="pic">
+                <ul>
+                    <li><img src="img/5.jpg" alt=""/></li>
+                    <li><img src="img/1.jpg" alt=""/></li>
+                    <li><img src="img/2.jpg" alt=""/></li>
+                    <li><img src="img/3.jpg" alt=""/></li>
+                    <li><img src="img/4.jpg" alt=""/></li>
+                    <li><img src="img/5.jpg" alt=""/></li>
+                    <li><img src="img/1.jpg" alt=""/></li>
+
+
+
+                </ul>
+            </div>
+            <div id="btn">
+                <div id="left">&lt;</div>
+                <div id="right">&gt;</div>
+            </div>
+            <div id="tab">
+                <ul>
+                    <li class="on"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul></div>
+        </div>
+        <script src="move.js"></script>
+        <script>
+            var tabLi = document.getElementById('tab').getElementsByTagName('li');
+            var oUl = document.getElementById('pic').getElementsByTagName('ul')[0];
+            var index = 0;
+            var oRight = document.getElementById('right');
+            var oLeft = document.getElementById('left');
+            var oBanner = document.getElementById('banner');
+            var timer;
+            var nowTime = 0;
+
+            for( var i=0;i<tabLi.length;i++ )
+            {
+
+                tabLi[i].a=i;
+                tabLi[i].onclick = function(){
+                tabLi[index].className ='';
+                index=this.a;
+                    change();}
+            }
+
+            oRight.onclick = function(){
+                if(new Date()- nowTime > 200){
+                    nowTime=new Date();
+                tabLi[index].className ='';
+                index++;
+                index %= 6;
+                change();}
+
+            };
+            oLeft.onclick = function ()
+            {
+                if(new Date() - nowTime > 300){
+                    nowTime=new Date();
+
+                tabLi[index].className ='';
+                index = index < 0?tabLi.length-1:index-1;
+                    change();
+                }
+
+            };
+            auto ();
+
+            oBanner.onmouseenter=function()
+            {clearInterval(timer)};
+            oBanner.onmouseleave = function (){ auto ();};
+
+            function auto (){ timer = setInterval(function()
+                {
+                tabLi[index].className ='';
+                index++;
+                index %= tabLi.length;
+                change();
+                },3000)
+            }
+            function change(){
+                    var now = index;
+                    //if(now >=tabLi.length){now = 0;}
+                    now %= tabLi.length;
+                    if(now < 0){
+                        now = tabLi.length - 1;
+                    }
+                    tabLi[now].className='on';
+                    move( oUl , {marginLeft:-520*(index+1)+'px'},200,function(){
+                        if( index == tabLi.length )
+                        {
+                            this.style.marginLeft = '-520px';
+                            index = now;
+                        }
+                        else if(index==-1){
+                            this.style.marginLeft = -520*tabLi.length+'px';
+                            index=now;
+                        }
+                    }  );
+            }
+
+
+
+
+        </script>
+</body>
+</html>
