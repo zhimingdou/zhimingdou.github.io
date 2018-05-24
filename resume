@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        .wrapper{
+            height: 1000px;
+            width: 1000px;
+        }
+        .wrapper-j{
+            height: 100%;
+            width: 200px;
+            background-color: #65a5fa;
+            float: left;
+        }
+        .jl{
+            font-size: 50px;
+            line-height: 200px;
+            margin-left: 50px;
+            color: #fff;
+        }
+        .ht{
+            width: 100%;
+            height: 200px;
+        }
+        .nav{
+            float: left;
+            margin-left: 20px;
+        }
+        strong{
+            display: inline-block;
+            margin: 6px 0;
+        }
+        /*strong{*/
+            /*margin-top: 100px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+        <div class="wrapper">
+            <div class="wrapper-j">
+                <span class="jl">简历</span>
+
+            </div>
+            <div class="nav">
+                <div class="ht">
+                    <h2>基本信息</h2><br>
+                    <strong>姓名</strong>
+                    <span>douzhiming</span><br>
+                    <strong>性别</strong>
+                    <span>男</span><br>
+                    <strong>应聘职位</strong>
+                    <span>web前端工程师</span><br>
+                    <strong><a href="#">个人网站</a></strong>
+                </div>
+                <div class="ht">
+                    <h2>联系方式</h2><br>
+                    <strong>电话</strong>
+                    <span>12312341234</span><br>
+                    <strong>邮箱</strong>
+                    <span>443903845@qq.com</span><br>
+                    <strong>新浪微博</strong>
+                    <span><a href="#">www</a></span><br>
+                    <strong>个人主页</strong>
+                    <span><a href="#">www</a></span>
+                </div>
+                <div class="ht">
+                    <h2>能力描述</h2><br>
+                    <strong>HTML</strong><br>
+                    <strong>css</strong><br>
+                    <strong>javascript</strong><br>
+                    <strong>vue.js</strong><br>
+
+                </div>
+                <div class="ht">
+                    <h2>项目经历</h2><br>
+                    <strong><a href="#">github</a></strong>
+                </div>
+                <div class="ht">
+                    <h2>教育经历</h2>
+                </div>
+
+            </div>
+        </div>
+</body>
+</html>
