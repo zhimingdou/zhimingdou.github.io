@@ -18,4 +18,4 @@
 
 [TOC]
 
-[简历](zhimingdou.github.io)
+[简历](http://www.zhimingdou.github.io)
