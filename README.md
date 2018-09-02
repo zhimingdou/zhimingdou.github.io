@@ -19,4 +19,4 @@
 [TOC]
 
 [简历](https://zhimingdou.github.io)
-*Email:douxiao25@gmail.com
+* Email:douxiao25@gmail.com
